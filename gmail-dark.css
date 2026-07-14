@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════════════
+   Friday Gmail Dark — Custom dark mode for Gmail email body
+   Targets: email reading pane, compose window, reply editor
+   Strategy: CSS overrides + targeted filter inversion for HTML emails
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Palette ─────────────────────────────────────────────── */
+:root {
+  --fgd-bg:           #1a1b26;
+  --fgd-bg-elevated:  #24253a;
+  --fgd-text:         #c0caf5;
+  --fgd-text-muted:   #7a82a6;
+  --fgd-border:       #2e3045;
+  --fgd-accent:       #7aa2f7;
+  --fgd-accent-bg:    #1f2335;
+}
+
+/* ── Email viewer container ──────────────────────────────── */
+.iY {
+  background: transparent !important;
+}
+
+/* ── Email cards / conversation panes ────────────────────── */
+.nH.qY {
+  background-color: var(--fgd-bg) !important;
+  border: 1px solid var(--fgd-border) !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+.nH.qY .t1 {
+  color: var(--fgd-text) !important;
+}
+.nH.qY .t2,
+.nH.qY .vL {
+  color: var(--fgd-text-muted) !important;
+}
+.nH.qY .vU {
+  color: var(--fgd-text) !important;
+}
+
+/* Sender avatars / icons — invert to match dark theme */
+.nH.qY .tk > div:first-child {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+/* ── Email body (HTML email content) ───────────────────────
+   Inversion is needed because HTML emails have hard-coded
+   light backgrounds. Tuned for warmer, less muddy results. */
+.gs .ii.gt {
+  filter: invert(92%) hue-rotate(180deg) saturate(110%);
+}
+.gs .ii.gt img {
+  filter: invert(100%) hue-rotate(180deg) contrast(110%) saturate(115%);
+}
+.gs .ii.gt ::selection {
+  color: var(--fgd-accent) !important;
+  background: var(--fgd-accent-bg) !important;
+}
+
+/* ── New Message / Reply / Forward editors ───────────────── */
+.AD,
+.aSt,
+.gA .I5 {
+  background-color: var(--fgd-bg) !important;
+  filter: invert(92%) hue-rotate(180deg) saturate(110%);
+  border-radius: 8px;
+}
+
+/* Toolbar buttons inside editors */
+.AD .az2 .J-JN-M-I-Jm,
+.aSt .az2 .J-JN-M-I-Jm,
+.gA .I5 .az2 .J-JN-M-I-Jm {
+  color: #1a1b26;
+}
+
+/* Dropdown menus within editors */
+.AD .J-M,
+.aSt .J-M,
+.gA .I5 .J-M {
+  filter: invert(92%) hue-rotate(180deg) saturate(110%);
+}
+
+/* Images inside editors — counter-invert to preserve original */
+.AD img:not(.uC > img),
+.aSt img:not(.uC > img),
+.gA .I5 img:not(.uC > img) {
+  filter: invert(100%) hue-rotate(180deg) contrast(110%) saturate(115%);
+}
+
+/* Text selection inside editors */
+.AD ::selection,
+.aSt ::selection,
+.gA .I5 ::selection {
+  color: var(--fgd-accent) !important;
+  background: var(--fgd-accent-bg) !important;
+}
+
+/* ── Floating compose / popout window ────────────────────── */
+.afC {
+  background-color: var(--fgd-bg) !important;
+  filter: invert(92%) hue-rotate(180deg) saturate(110%);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+.afC .afH {
+  filter: invert(100%) hue-rotate(180deg) contrast(110%) saturate(115%);
+}
+
+/* ── Smooth transitions ──────────────────────────────────── */
+.nH.qY,
+.AD,
+.aSt,
+.afC {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}

@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Friday Gmail Dark",
+  "version": "1.0.0",
+  "description": "Dark mode for Gmail email body, compose, and reply editors",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/mail/*"],
+      "css": ["gmail-dark.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
