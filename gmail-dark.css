@@ -1,7 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Friday Gmail Dark — Custom dark mode for Gmail email body
-   Targets: email reading pane, compose window, reply editor
-   Strategy: CSS overrides + targeted filter inversion for HTML emails
+   Friday Gmail Dark — CSS (injected by content.js)
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── Palette ─────────────────────────────────────────────── */
@@ -13,6 +11,8 @@
   --fgd-border:       #2e3045;
   --fgd-accent:       #7aa2f7;
   --fgd-accent-bg:    #1f2335;
+  --fgd-highlight:    #e0a020;  /* mustard — sender name & subject */
+  --fgd-highlight-2:  #f0b030;  /* brighter mustard for emphasis */
 }
 
 /* ── Email viewer container ──────────────────────────────── */
@@ -27,9 +27,21 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
-.nH.qY .t1 {
-  color: var(--fgd-text) !important;
+
+/* Sender name — mustard yellow */
+.nH.qY .t1,
+.nH.qY .gD {
+  color: var(--fgd-highlight) !important;
 }
+
+/* Subject line — brighter mustard */
+.nH.qY .hp,
+.nH.qY .qJ,
+.nH.qY .if {
+  color: var(--fgd-highlight-2) !important;
+}
+
+/* Secondary text — muted */
 .nH.qY .t2,
 .nH.qY .vL {
   color: var(--fgd-text-muted) !important;
@@ -43,9 +55,7 @@
   filter: invert(100%) hue-rotate(180deg);
 }
 
-/* ── Email body (HTML email content) ───────────────────────
-   Inversion is needed because HTML emails have hard-coded
-   light backgrounds. Tuned for warmer, less muddy results. */
+/* ── Email body (HTML email content) ─────────────────────── */
 .gs .ii.gt {
   filter: invert(92%) hue-rotate(180deg) saturate(110%);
 }
