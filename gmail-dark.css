@@ -28,17 +28,22 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Sender name — mustard yellow */
-.nH.qY .t1,
-.nH.qY .gD {
+/* Sender name — mustard yellow
+   (.gD is the sender span in expanded message headers; no .nH.qY
+   ancestor — that combo doesn't exist in current Gmail DOM) */
+span.gD {
   color: var(--fgd-highlight) !important;
 }
 
-/* Subject line — brighter mustard */
-.nH.qY .hp,
-.nH.qY .qJ,
-.nH.qY .if {
+/* Subject line — brighter mustard (class is .hP, capital P) */
+h2.hP {
   color: var(--fgd-highlight-2) !important;
+}
+
+/* Recipient line ("to me") and date in message header — muted */
+span.g2,
+span.g3 {
+  color: var(--fgd-text-muted) !important;
 }
 
 /* Secondary text — muted */
@@ -80,6 +85,23 @@
 .aAb,
 .arC {
   background-color: var(--fgd-bg) !important;
+}
+
+/* Reply-area wrapper + quick-reply container — these stay white
+   in Gmail dark mode and caused white bars around the reply strip.
+   NOTE: .btDi4d is a minified class that may churn with Gmail builds. */
+.nH.btDi4d,
+.nr.wR {
+  background-color: var(--fgd-bg) !important;
+}
+
+/* Gemini "Suggested reply" box — light gray border + invisible label.
+   NOTE: .Kz7eFc / .tcJTwd are minified classes that may churn. */
+.Kz7eFc {
+  border-color: var(--fgd-border) !important;
+}
+span.tcJTwd {
+  color: var(--fgd-text-muted) !important;
 }
 
 /* Reply / Forward buttons themselves — keep text readable */

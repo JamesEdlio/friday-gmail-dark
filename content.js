@@ -27,8 +27,9 @@ const DARK_CSS = `
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
-.nH.qY .t1, .nH.qY .gD { color: var(--fgd-highlight) !important; }
-.nH.qY .hp, .nH.qY .qJ, .nH.qY .if { color: var(--fgd-highlight-2) !important; }
+span.gD { color: var(--fgd-highlight) !important; }   /* sender name */
+h2.hP { color: var(--fgd-highlight-2) !important; }    /* subject (capital P) */
+span.g2, span.g3 { color: var(--fgd-text-muted) !important; } /* "to me" + date */
 .nH.qY .t2, .nH.qY .vL { color: var(--fgd-text-muted) !important; }
 .nH.qY .vU { color: var(--fgd-text) !important; }
 .nH.qY .tk > div:first-child { filter: invert(100%) hue-rotate(180deg); }
@@ -42,6 +43,11 @@ const DARK_CSS = `
 .gA, .gA .gB, .gA .gK, .hq, .dC, .aoI, .amn, .aSt, .aAb, .arC {
   background-color: var(--fgd-bg) !important;
 }
+/* Reply-area wrapper + quick-reply container (white in Gmail dark).
+   .btDi4d / .Kz7eFc / .tcJTwd are minified classes — may churn with Gmail builds. */
+.nH.btDi4d, .nr.wR { background-color: var(--fgd-bg) !important; }
+.Kz7eFc { border-color: var(--fgd-border) !important; }   /* suggested-reply box border */
+span.tcJTwd { color: var(--fgd-text-muted) !important; }  /* "Suggested reply" label */
 .gA .az2, .gA .az2 *, .hq .az2, .hq .az2 *, .dC .az2, .dC .az2 * {
   background-color: transparent !important;
   color: var(--fgd-text) !important;
