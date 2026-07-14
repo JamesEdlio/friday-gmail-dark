@@ -40,12 +40,15 @@ span.g2, span.g3 { color: var(--fgd-text-muted) !important; } /* "to me" + date 
 .gs .ii.gt ::selection { color: var(--fgd-accent) !important; background: var(--fgd-accent-bg) !important; }
 
 /* ── Reply button strip ─────────────────────────────────── */
-.gA, .gA .gB, .gA .gK, .hq, .dC, .aoI, .amn, .aSt, .aAb, .arC {
-  background-color: var(--fgd-bg) !important;
+/* Transparent, not painted: Gmail's own dark background shows through
+   so the reply band always matches its surroundings. (.nH.btDi4d and
+   .nr.wR default to white in Gmail dark mode; .btDi4d / .Kz7eFc /
+   .tcJTwd are minified classes — may churn with Gmail builds.) */
+.gA, .gA .gB, .gA .gK, .hq, .dC, .amn, .nH.btDi4d, .nr.wR {
+  background-color: transparent !important;
 }
-/* Reply-area wrapper + quick-reply container (white in Gmail dark).
-   .btDi4d / .Kz7eFc / .tcJTwd are minified classes — may churn with Gmail builds. */
-.nH.btDi4d, .nr.wR { background-color: var(--fgd-bg) !important; }
+/* Compose/editor surfaces keep the themed background */
+.aoI, .aSt, .aAb, .arC { background-color: var(--fgd-bg) !important; }
 .Kz7eFc { border-color: var(--fgd-border) !important; }   /* suggested-reply box border */
 span.tcJTwd { color: var(--fgd-text-muted) !important; }  /* "Suggested reply" label */
 .gA .az2, .gA .az2 *, .hq .az2, .hq .az2 *, .dC .az2, .dC .az2 * {

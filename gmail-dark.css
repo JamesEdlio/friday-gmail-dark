@@ -73,25 +73,26 @@ span.g3 {
 }
 
 /* ── Reply button strip (Reply / Reply All / Forward) ────── */
-/* The container holding reply buttons at bottom of email */
+/* Transparent, not painted: Gmail's own dark background shows
+   through so the reply band always matches its surroundings.
+   (.nH.btDi4d and .nr.wR default to white in Gmail dark mode —
+   .btDi4d is a minified class that may churn with Gmail builds.) */
 .gA,
 .gA .gB,
 .gA .gK,
 .hq,
 .dC,
-.aoI,
 .amn,
+.nH.btDi4d,
+.nr.wR {
+  background-color: transparent !important;
+}
+
+/* Compose/editor surfaces keep the themed background */
+.aoI,
 .aSt,
 .aAb,
 .arC {
-  background-color: var(--fgd-bg) !important;
-}
-
-/* Reply-area wrapper + quick-reply container — these stay white
-   in Gmail dark mode and caused white bars around the reply strip.
-   NOTE: .btDi4d is a minified class that may churn with Gmail builds. */
-.nH.btDi4d,
-.nr.wR {
   background-color: var(--fgd-bg) !important;
 }
 
